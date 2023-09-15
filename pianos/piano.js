@@ -1,18 +1,31 @@
-for(var i=0; i<document.querySelectorAll(".keys").length;i++ ){
-    document.querySelectorAll("button")[i].addEventListener("click",function() {
-        // var audio= new Audio("sounds/key02.mp3");
-        // audio.play();
+var isKeyDown = {}; 
 
-        var buttonInnerHTML=this.innerHTML;
-        makesound(buttonInnerHTML);
-        // buttonAnimation(buttonInnerHTML);
-    });
-    document.addEventListener("keydown",function(event) {
-        makesound(event.key.toUpperCase());
-        // console.log(key);
-        // buttonAnimation(event.key);
-    });
-}
+        
+        var pianoKeys = document.querySelectorAll(".keys");
+        for (var i = 0; i < pianoKeys.length; i++) {
+            pianoKeys[i].addEventListener("click", function () {
+                var buttonInnerHTML = this.innerHTML;
+                makesound(buttonInnerHTML);
+            });
+        }
+
+        // Add event listener for keyboard keydown events
+        document.addEventListener("keydown", function (event) {
+            var key = event.key.toUpperCase();
+
+            // Check if the key is already down to prevent rapid repeated presses
+            if (!isKeyDown[key]) {
+                isKeyDown[key] = true;
+                makesound(key);
+            }
+        });
+
+        // Add event listener for keyboard keyup events
+        document.addEventListener("keyup", function (event) {
+            var key = event.key.toUpperCase();
+            isKeyDown[key] = false;
+        });
+
 function makesound(key){
     switch (key) {
         case "A":
