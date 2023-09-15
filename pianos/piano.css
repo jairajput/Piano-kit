@@ -1,0 +1,70 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    background-color: #283149;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
+}
+
+h1 {
+    font-size: 5rem;
+    color: #DBEDF3;
+    font-family: "Arvo", cursive;
+    text-shadow: 3px 0 #DA0463;
+    margin: 20px 0; /* Add margin to separate the title from the piano */
+}
+
+footer {
+    color: #DBEDF3;
+    font-family: sans-serif;
+    margin-top: auto; /* Push the footer to the bottom */
+    margin-top: 100px;
+    background-color: #1e2a3a; /* Give the footer a background color */
+}
+
+.piano {
+    justify-content: center;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 2px;
+}
+
+.white-key, .black-key {
+    width: 100px;
+    height: 320px;
+    border: 2px solid #000;
+    margin-right: -7px; /* Remove the margin between keys */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.black-key {
+    
+    background-color: #000;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    margin-left: -15px; /* Adjust the margin to overlap with white keys */
+    cursor: pointer;
+    top: -70px;
+    color: #000;
+}
+
+.piano .white-key:active, .piano .black-key:active {
+    background-color: #ccc;
+}
+
+.black-key {
+    width: 24px;
+    height: 250px;
+}
